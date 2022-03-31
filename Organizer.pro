@@ -9,35 +9,35 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    circleedit.cpp \
-    customlineedit.cpp \
-    customtextedit.cpp \
-    databasehelper.cpp \
-    displayframe.cpp \
-    draggable.cpp \
-    draggableobjects.cpp \
-    logindialog.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    sidebar.cpp \
-    todoitem.cpp
+    Source//circleedit.cpp \
+    Source//customlineedit.cpp \
+    Source//customtextedit.cpp \
+    Source//databasehelper.cpp \
+    Source//displayframe.cpp \
+    Source//draggable.cpp \
+    Source//draggableobjects.cpp \
+    Source//logindialog.cpp \
+    Source//main.cpp \
+    Source//mainwindow.cpp \
+    Source//sidebar.cpp \
+    Source//todoitem.cpp
 
 HEADERS += \
-    circleedit.h \
-    customlineedit.h \
-    customtextedit.h \
-    databasehelper.h \
-    displayframe.h \
-    draggable.h \
-    draggableobjects.h \
-    logindialog.h \
-    mainwindow.h \
-    sidebar.h \
-    todoitem.h
+    Headers//circleedit.h \
+    Headers//customlineedit.h \
+    Headers//customtextedit.h \
+    Headers//databasehelper.h \
+    Headers//displayframe.h \
+    Headers//draggable.h \
+    Headers//draggableobjects.h \
+    Headers//logindialog.h \
+    Headers//mainwindow.h \
+    Headers//sidebar.h \
+    Headers//todoitem.h
 
 FORMS += \
-    logindialog.ui \
-    mainwindow.ui
+    Forms//logindialog.ui \
+    Forms//mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
