@@ -1,0 +1,108 @@
+DisplayFrame
+{
+    background-color: #181926;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+Sidebar
+{
+    border-radius: 5px;
+    border: 1px solid black;
+    background: #1B2040;
+}
+
+QScrollArea
+{
+    border: 0px;
+    background: transparent;
+}
+#window
+{
+    background: #0E0C1A;
+}
+
+/*
+Draggable{
+    border: 1px solid green;
+}
+*/
+
+
+/* Text Edit */
+CustomTextEdit{
+    border-radius: 5px;
+    background-color: #375099;
+}
+
+
+/* Line Edit
+CustomLineEdit:hover{
+    color: #B36DFF;
+    border: 0px;
+    background-color: rgba(255, 255, 255, 10);
+}
+
+CustomLineEdit{
+    color: #B36DFF;
+    border: 0px;
+    background: transparent;
+}
+*/
+
+/* Circle Edit */
+CircleEdit
+{
+    color: #16171F;
+}
+
+DraggableCircleEdit:hover{
+    border: 0px;
+    background-color: rgba(255, 255, 255, 10);
+}
+
+
+/* To-Do */
+DraggableToDo
+{
+    border-radius: 5px;
+    background-color: #4A2F80;
+}
+
+
+ToDoItem
+{
+    background-color: #3B2666;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 40);
+    /*
+    border-left: 20px solid black;
+    border-top: 20px solid black;
+    border-left-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop: 0 rgb(195,195,195), stop: 1 rgb(240, 240, 240));
+    border-top-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop: 0 rgb(195,195,195), stop: 1 rgb(240, 240, 240));*/
+}
+
+
+QLineEdit[objectName^="Todo Element"]
+{
+    background-color: #B36DFF;
+    border-radius: 5px;
+}
+
+QPushButton[objectName^="AddToDo"]
+{
+    background-color: #B36DFF;
+    border-radius: 5px;
+}
+
+QPushButton[objectName^="Check Button"]
+{
+    background-color: transparent;
+}
+
+/*
+DraggableArrow
+{
+    background-color:red;
+    border: 1px solid green;
+}
+*/
