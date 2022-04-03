@@ -17,9 +17,9 @@
 #include <QTextStream>
 #include <QBuffer>
 
-#include "sidebar.h"
-#include "draggableobjects.h"
-#include "displayframe.h"
+#include "Headers/sidebar.h"
+#include "Headers/draggableobjects.h"
+#include "Headers/displayframe.h"
 
 DraggableTextEdit::DraggableTextEdit(QWidget *parent): Draggable(parent), textEdit1{new CustomTextEdit(this)}
 {
