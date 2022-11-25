@@ -6,18 +6,18 @@ Some of the features include to-do lists, labels, notes, flowcharts and mood boa
 
 To use download the build folder of the required platform and run the executable.
 
-## Example1
+## To-Do Lists
 
 ![example-layout1](./Images/Organizer1.png)
 
-## Example2
+## Notes
 
 ![example-layout2](./Images/Organizer2.png)
 
-## Example3
+## Flow Charts
 
 ![example-layout2](./Images/Organize3.png)
 
-## Example4
+## Mood Boards
 
 ![example-layout2](./Images/Organizer4.png)
