@@ -1,6 +1,6 @@
 # Personal Organizer Project
 
-This project is tool to help people organize and execute on their own projects.
+This project is a tool to help people organize and execute on their own projects.
 
 Some of the features include to-do lists, labels, notes, flowcharts and mood boards.
 
