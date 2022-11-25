@@ -7,9 +7,9 @@
 #include <QJsonObject>
 #include <QPoint>
 
-#include "displayframe.h"
-#include "sidebar.h"
-#include "todoitem.h"
+#include "Headers/displayframe.h"
+#include "Headers/sidebar.h"
+#include "Headers/todoitem.h"
 
 DisplayFrame* DisplayFrame::displayFrameInstance{nullptr};
 const int DisplayFrame::GROW_RATE{10};

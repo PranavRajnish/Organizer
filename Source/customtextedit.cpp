@@ -1,4 +1,4 @@
-#include "customtextedit.h"
+#include "Headers/customtextedit.h"
 #include <QMouseEvent>
 #include <QDebug>
 

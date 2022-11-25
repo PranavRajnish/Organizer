@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "Headers/mainwindow.h"
 #include "ui_mainwindow.h"
 
 #include <QDebug>
@@ -10,7 +10,7 @@
 #include <QCloseEvent>
 #include <QScrollBar>
 
-#include "logindialog.h"
+#include "Headers/logindialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

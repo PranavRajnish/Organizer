@@ -1,4 +1,4 @@
-#include "logindialog.h"
+#include "Headers/logindialog.h"
 #include "ui_logindialog.h"
 
 #include <QPalette>

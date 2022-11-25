@@ -1,7 +1,7 @@
-#include "mainwindow.h"
+#include "Headers/mainwindow.h"
 #include<QFile>
 #include <QApplication>
-#include <databasehelper.h>
+#include "Headers/databasehelper.h"
 
 QString readTextFile(QString path)
 {

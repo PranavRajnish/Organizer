@@ -6,9 +6,9 @@
 #include <QMimeData>
 #include <QFileDialog>
 
-#include "sidebar.h"
-#include "displayframe.h"
-#include "draggableobjects.h"
+#include "Headers/sidebar.h"
+#include "Headers/displayframe.h"
+#include "Headers/draggableobjects.h"
 
 Sidebar* Sidebar::sidebarInstance{nullptr};
 

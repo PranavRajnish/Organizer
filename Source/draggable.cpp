@@ -11,9 +11,9 @@
 #include <QMenu>
 #include <QAction>
 
-#include "draggable.h"
-#include "displayframe.h"
-#include "sidebar.h"
+#include "Headers/draggable.h"
+#include "Headers/displayframe.h"
+#include "Headers/sidebar.h"
 
 QList<Draggable*> Draggable::savedObjects{};
 Draggable::Draggable(QWidget *parent) : QFrame(parent), draggableType{Default}, content{""}, buttonThickness{10}, currentColor(22,23,31), currentFont("Helvetica [Cronyx]", 12),

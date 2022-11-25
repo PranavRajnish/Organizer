@@ -7,7 +7,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <QPainter>
 
-#include "todoitem.h"
+#include "Headers/todoitem.h"
 
 ToDoItem::ToDoItem(QWidget *parent, int todoNumber, QString newTodoContent, bool bisChecked, QColor currentColor, QFont currentFont): QFrame(parent), todoContent{newTodoContent}, horizontalLayout{new QHBoxLayout(this)}, pushButton{new QPushButton(this)}, lineEdit{new QLineEdit(this)},
     dotIconPath{":/icons/Icons/dot.png"}, checkIconPath{":/icons/Icons/check.png"}, isChecked{bisChecked}, offset{0,0}, todoNumber{0}
