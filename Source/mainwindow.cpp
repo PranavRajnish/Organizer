@@ -43,12 +43,10 @@ void MainWindow::resizeEvent(QResizeEvent *)
     newWidth = qMax(displayFrame->size().width(), scrollArea->width());
     newHeight = qMax(displayFrame->size().height(), scrollArea->height());
     displayFrame->resize(newWidth, newHeight);
-    //window->setGeometry(this->rect());
-//    QSize difference = event->size() - event->oldSize();
-//    scrollArea->resize(scrollArea->size() + difference);
 }
 
 
+// Serializing all widgets
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     if(!bsafeToClose)
@@ -119,6 +117,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 }
 
+// Debug control
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_S)
@@ -143,7 +142,6 @@ void MainWindow::safeToClose()
 
 void MainWindow::onScrolling(int x, int y)
 {
-    //scrollArea->scroll(x,y);
     scrollArea->horizontalScrollBar()->setValue(scrollArea->horizontalScrollBar()->value() + x);
     scrollArea->verticalScrollBar()->setValue(scrollArea->verticalScrollBar()->value() + y);
 }

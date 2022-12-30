@@ -34,8 +34,6 @@ DisplayFrame::DisplayFrame(QWidget *parent): QFrame(parent)
     databaseHelper = DatabaseHelper::getInstance();
     connect(databaseHelper, &DatabaseHelper::draggableData, this, &DisplayFrame::loadDraggables);
     databaseHelper->loadData();
-
-    //connect(Sidebar::getInstance(), &Sidebar::imageReady, this, &DisplayFrame::onImageReady);
 }
 
 void DisplayFrame::mouseMoveEvent(QMouseEvent *event)

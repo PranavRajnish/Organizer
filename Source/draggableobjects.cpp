@@ -1,7 +1,7 @@
 #include <QHBoxLayout>
 #include <QPainter>
-#include<QPainterPath>
-#include<QMouseEvent>
+#include <QPainterPath>
+#include <QMouseEvent>
 #include <QMimeData>
 #include <QJsonDocument>
 #include <QJsonArray>
@@ -27,8 +27,6 @@ DraggableTextEdit::DraggableTextEdit(QWidget *parent): Draggable(parent), textEd
     this->setFrameStyle(QFrame::NoFrame);
 
     textEdit1->setGeometry(QRect(this->rect()));
-//    textEdit1->setLineWidth(3);
-//    textEdit1->setFrameStyle(QFrame::StyledPanel|QFrame::Raised);
 
     textEdit1->setFrameShape(QFrame::Panel);
     textEdit1->setFrameShadow(QFrame::Raised);
@@ -53,7 +51,6 @@ DraggableTextEdit::DraggableTextEdit(QWidget *parent): Draggable(parent), textEd
     connect(textEdit1, &QWidget::customContextMenuRequested, this, &DraggableTextEdit::showContextMenu);
 
     connect(textEdit1, &QTextEdit::textChanged, this, &DraggableTextEdit::onTextChange);
-    //connect(this, &Draggable::fontChanged, this, &DraggableTextEdit::onFontChange);
     connect(textEdit1, &CustomTextEdit::mousePressed, this, &Draggable::onComponentMouseButtonPressed);
     connect(textEdit1, &CustomTextEdit::mouseMoved, this, &Draggable::onComponentMouseButtonMoved);
     connect(textEdit1, &CustomTextEdit::mouseReleased, this, &Draggable::onComponentMouseButtonReleased);
@@ -245,8 +242,6 @@ void DraggableLineEdit::changeColor()
 {
     QColor color = QColorDialog::getColor(currentTextColor);
     setColor(color);
-
-    //lineEdit1->setTextColor(textColor);
 }
 
 void DraggableLineEdit::setContent(QString newContent)
@@ -260,8 +255,6 @@ DraggableCircleEdit::DraggableCircleEdit(QWidget *parent):
 {
     this->setMinimumSize(60,60);
     this->draggableType = Circle;
-    //QVBoxLayout *layout = new QVBoxLayout(this);
-   // layout->addWidget(textEdit1);
     circleEdit1->setFrameShape(QFrame::NoFrame);
     circleEdit1->setGeometry(this->x() + padding, this->y() + padding, this->rect().width() - padding, this->rect().height() - padding);
 
@@ -273,15 +266,10 @@ DraggableCircleEdit::DraggableCircleEdit(QWidget *parent):
     shadow->setColor(QColor(1,0,0));
     shadow->setOffset(2);
     this->setGraphicsEffect(shadow);
-
-    //circleEdit1->setLineWrapMode(QTextEdit::FixedPixelWidth);
-    //circleEdit1->setLineWrapColumnOrWidth(100);
     circleEdit1->setAlignment(Qt::AlignCenter);
     cursorY = circleEdit1->cursorRect().y();
 
     circleEdit1->setContextMenuPolicy(Qt::CustomContextMenu);
-//    circleEdit1->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-//    circleEdit1->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     connect(circleEdit1, &QWidget::customContextMenuRequested, this, &DraggableCircleEdit::showContextMenu);
     connect(circleEdit1, &QTextEdit::cursorPositionChanged, this, &DraggableCircleEdit::onCursorPosChange);
@@ -291,7 +279,6 @@ DraggableCircleEdit::DraggableCircleEdit(QWidget *parent):
     connect(circleEdit1, &CircleEdit::mouseReleased, this, &Draggable::onComponentMouseButtonReleased);
 
     connect(this, &Draggable::changeHand, circleEdit1, &CircleEdit::onHandChange);
-    //drawCircle();
 }
 
 void DraggableCircleEdit::onTextChange()
@@ -301,7 +288,6 @@ void DraggableCircleEdit::onTextChange()
 
 void DraggableCircleEdit::resizeEvent(QResizeEvent *event)
 {
-    //drawCircle();
     circleEdit1->setGeometry(padding,padding, event->size().width() - 2*padding, event->size().height() - 2*padding);
     update();
 }
@@ -312,8 +298,6 @@ void DraggableCircleEdit::paintEvent(QPaintEvent *)
     painter.setRenderHint(QPainter::Antialiasing, true);
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
 
-//    QPen pen;
-//    pen.setColor(Qt::black);
     painter.setPen(Qt::NoPen);
     painter.setBrush(QColor(30,150,104));
 
@@ -492,8 +476,6 @@ void DraggableCircleEdit::calculateMousePosition(QMouseEvent *event)
     QRect ellipseRect = circleEdit1->rect();
     float result = pow(event->pos().x() - ellipseRect.center().x(), 2)/pow(ellipseRect.width()/2,2) + pow(event->pos().y() - ellipseRect.center().y(), 2)/pow(ellipseRect.height()/2,2);
     if(event->pos().x() > this->rect().x() + this->rect().width()/2 && event->pos().y() > this->rect().x() + this->rect().width()/2 && abs(result - 1) <= 0.05)
-//    if(event->pos().x() <= this->rect().x() + this->rect().width() && event->pos().x() >= this->rect().x() + this->rect().width() - buttonThickness
-//            && event->pos().y() <= this->rect().y() + this->rect().height() && event->pos().y() >= this->rect().y() + this->rect().height() - buttonThickness)
     {
         //qDebug()
         this->setCursor(Qt::OpenHandCursor);
@@ -501,8 +483,6 @@ void DraggableCircleEdit::calculateMousePosition(QMouseEvent *event)
         setEdge(BottomRight);
     }
 
-    //else if(event->pos().x() <= this->rect().x() + this->rect().width() && event->pos().x() >= this->rect().x() && event->pos().y() <= (this->rect().y() + buttonThickness)
-                //&& event->pos().y() >= this->rect().y())
     else if(event->pos().x() <= this->rect().x() + this->rect().width() && event->pos().x() >= this->rect().x() &&
             event->pos().y() <= this->rect().y() + this->rect().height() && event->pos().y() >= this->rect().y())
     {
@@ -522,7 +502,6 @@ void DraggableCircleEdit::calculateMousePosition(QMouseEvent *event)
 
 void DraggableCircleEdit::onCursorPosChange()
 {
-    //qDebug()<<circleEdit1->cursorRect();
     if(circleEdit1->cursorRect().y() < circleEdit1->rect().center().y())
     {
 
@@ -553,7 +532,6 @@ DraggableToDo::DraggableToDo(QWidget *parent):
     this->setSizePolicy(QSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed));
     this->draggableType = Todo;
     this->setAcceptDrops(true);
-    //QSpacerItem* verticalSpacer= new QSpacerItem(this);
 
     QHBoxLayout* temp = new QHBoxLayout();
     temp->setContentsMargins(8,3,8,3);
@@ -566,10 +544,8 @@ DraggableToDo::DraggableToDo(QWidget *parent):
     shadow1->setOffset(1);
     addToDoButton->setGraphicsEffect(shadow1);
 
-    //outerVerticalLayout->setContentsMargins(3,5,3,3);
     outerVerticalLayout->addLayout(innerVerticalLayout);
 
-    //outerVerticalLayout->addWidget(addToDoButton);
     outerVerticalLayout->addStretch();
     outerVerticalLayout->addLayout(temp);
 
@@ -598,7 +574,6 @@ void DraggableToDo::dragEnterEvent(QDragEnterEvent *event)
 
        event->setDropAction(Qt::CopyAction);
        event->accept();
-       //event->ignore();
 
     }
     else
@@ -725,7 +700,6 @@ void DraggableToDo::changeColor()
 DraggableArrow::DraggableArrow(QWidget *parent):
     Draggable(parent),pixmapLabel{new QLabel(this)}, arrowPivot(0,0), arrowHeadPos(0,0), hitLength{36}, arrowAngle{0}, arrowLength{75}, arrowHeadMoved{false}
 {
-    //QVBoxLayout *layout = new QVBoxLayout(this);
     this->draggableType = Arrow;
     pixmapLabel->setGeometry(this->rect());
     pixmap = QPixmap(pixmapLabel->width() - 2, pixmapLabel->height() -2);
@@ -763,8 +737,6 @@ void DraggableArrow::resizeEvent(QResizeEvent *)
 {
 
     pixmapLabel->setGeometry(this->rect());
-    //pixmap = pixmap.scaled(pixmapLabel->width(),pixmapLabel->height());
-
     if(!arrowHeadMoved)
     {
         arrowHeadPos = QPoint(this->width() - hitLength, this->height()/2 - hitLength/2);
@@ -791,9 +763,6 @@ void DraggableArrow::drawArrow()
     painter2.setRenderHint(QPainter::Antialiasing, true);
     painter2.setRenderHint(QPainter::SmoothPixmapTransform);
 
-    //painter.drawEllipse(QRect( pos(), size() ));
-
-
     painter.translate(arrowPivot.x(), arrowPivot.y());
     painter2.translate(arrowPivot.x(), arrowPivot.y());
 
@@ -819,7 +788,6 @@ void DraggableArrow::drawArrow()
                          QPointF(arrowLength, 3.0),
                          QPointF(arrowLength - 12.0,11.0)
                         };
-    //painter.drawPolygon(points, 3);
 
 
     QPainterPath path;
@@ -830,8 +798,6 @@ void DraggableArrow::drawArrow()
     painter.fillPath(path, QBrush (QColor(123,250,60)));
     painter2.fillPath(path, QBrush (QColor(255,154,86)));
 
-//    painter.rotate(-arrowAngle);
-//    painter.translate(-arrowPivot.x(), -arrowPivot.y());
     painter.setRenderHint(QPainter::Antialiasing, false);
     painter2.setRenderHint(QPainter::Antialiasing, false);
     pixmapLabel->setPixmap(arrowPixmap);
@@ -865,21 +831,12 @@ void DraggableArrow::mouseReleaseEvent(QMouseEvent *event)
 
         if(this->getBDragging())
         {
-        //Snapping to grid
             this->setBDragging(false);
-//            QPoint parentPos = mapToParent(event->pos() - offset);
-//            QPoint gridPos = getGridPoint(parentPos);
-
-//            qDebug()<<"Snap to:"<<gridPos.x()<<gridPos.y();
-//            this->move(gridPos.x(), gridPos.y());
-//            this->parentWidget()->update();
         }
 
         else if(this->getBResizing())
         {
             this->setBResizing(false);
-            //arrowHeadPos = event->pos()
-
             arrowHeadPos = QPoint(this->width()/2 + ((arrowLength - 10) * cos(qDegreesToRadians(arrowAngle))),
                                   this->height()/2 + ((arrowLength - 10) * sin(qDegreesToRadians(arrowAngle))));
             drawArrow();
@@ -889,7 +846,6 @@ void DraggableArrow::mouseReleaseEvent(QMouseEvent *event)
 
 void DraggableArrow::calculateMousePosition(QMouseEvent *event)
 {
-    //Arrow head position
     if(event->pos().x() > arrowHeadPos.x() - hitLength/2 && event->pos().x() < arrowHeadPos.x() + hitLength/2 && event->pos().y() > arrowHeadPos.y() -  hitLength/2 && event->pos().y() < arrowHeadPos.y() + hitLength/2)
     {
         this->setEdge(Draggable::Custom1);
@@ -898,7 +854,6 @@ void DraggableArrow::calculateMousePosition(QMouseEvent *event)
             arrowHeadMoved = true;
         }
     }
-    //Arrow tail position
 
     else if(event->pos().x() > arrowPivot.x() - hitLength/2 && event->pos().x() < arrowPivot.x() + hitLength/2 && event->pos().y() > arrowPivot.y() - hitLength/2 && event->pos().y() < arrowPivot.y() + hitLength/2)
     {
@@ -920,13 +875,11 @@ void DraggableArrow::moveWidget(QMouseEvent *event)
 
         if( getEdge() == Custom2 || getBDragging())
         {
-            //Moving with mouse
             setBDragging(true);
             QPoint parentPos = mapToParent(event->pos() - offset);
             QPoint centrePos = mapToParent(this->rect().center());
             if(this->parentWidget() != nullptr )
             {
-                //Keeping object within frame
                 if(centrePos.x() > 0 && centrePos.y() > 0 && centrePos.x() < this->parentWidget()->width() && centrePos.y() < this->parentWidget()->height())
                 {
                     this->move(parentPos);
@@ -943,14 +896,11 @@ void DraggableArrow::moveWidget(QMouseEvent *event)
 
 void DraggableArrow::resizeWidget(QMouseEvent *event)
 {
-    // ang = math.degrees(math.atan2(c[1]-b[1], c[0]-b[0]) - math.atan2(a[1]-b[1], a[0]-b[0]))
     if(event->buttons() == Qt::LeftButton && !this->getBDragging())
     {
         if( this->getEdge() == Custom1 || this->getBResizing())
         {
             this->setBResizing(true);
-            //qDebug() << "Resizing arrow";
-
             QVector2D mouseDirection(event->pos() - rect().center());
             arrowLength = mouseDirection.length();
             mouseDirection.normalize();
@@ -972,7 +922,6 @@ void DraggableArrow::resizeWidget(QMouseEvent *event)
 
             else if(gridPoint.x() - this->getParentPosWhenClicked().x() < this->rect().width() && gridPoint.y() - this->getParentPosWhenClicked().y() < this->rect().height())
             {
-                //qDebug("Shrink!");
                 if(this->minimumSize().width() < gridPoint.x() - this->getParentPosWhenClicked().x() && this->minimumSize().height() < gridPoint.y() - this->getParentPosWhenClicked().y())
                 {
                         this->setGeometry(this->getParentPosWhenClicked().x() + DisplayFrame::GRID_UNIT, this->getParentPosWhenClicked().y() + DisplayFrame::GRID_UNIT,
@@ -1021,13 +970,6 @@ void DraggableImage::write(QJsonObject &jsonObject)
     buff.open(QIODevice::WriteOnly);
     pixmap.save(&buff, "PNG");
 
-
-//    char *data = byteArray.data();
-//    while(*data)
-//    {
-//        binaryData += *data;
-//        ++data;
-//    }
     QString binaryData(buff.data().toBase64().data());
     qDebug()<<"Start";
     jsonObject["data"] = binaryData;

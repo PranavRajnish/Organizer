@@ -146,7 +146,6 @@ void Draggable::mouseReleaseEvent(QMouseEvent *event)
 
 void Draggable::mouseMoveEvent(QMouseEvent *event)
 {
-    //Finding mouse position relative to widget.
     calculateMousePosition(event);
     moveWidget(event);
     resizeWidget(event);

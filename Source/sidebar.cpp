@@ -63,7 +63,6 @@ void Sidebar::mousePressEvent(QMouseEvent *event)
         offset = event->pos();
         parentPosWhenClicked = mapToParent(event->pos() - offset);
         calculateMousePosition(event);
-        //qDebug()<<this->parentWidget()->mapFromGlobal(event->globalPosition());
     }
     QWidget::mousePressEvent(event);
 }
@@ -73,7 +72,6 @@ void Sidebar::mouseMoveEvent(QMouseEvent *event)
     if(event->buttons() & Qt::LeftButton)
     {
          int distance = (event->pos() - offset).manhattanLength();
-         //qDebug() << "Distance:"<<distance;
          if( distance >= QApplication::startDragDistance())
          {
 
@@ -100,16 +98,10 @@ void Sidebar::mouseMoveEvent(QMouseEvent *event)
 
                  if(drag->exec(Qt::MoveAction | Qt::CopyAction,Qt::CopyAction) == Qt::MoveAction)
                  {
-//                                //Move data
-//                                 qDebug()<< "Moving data";
-//                                 child->close();
                      return;
                  }
                  else
                  {
-//                    Copy action
-//                    child->setPixmap(mPixmap);
-//                    qDebug() << "Copying data";
                  }
 
              }

@@ -57,8 +57,7 @@ ToDoItem::ToDoItem(QWidget *parent, int todoNumber, QString newTodoContent, bool
         pushButton->setIcon(QIcon(dotIconPath));
     }
 
-//    QIcon buttonIcon(pixmap);
-//    pushButton->setIcon(buttonIcon);
+
     pushButton->setIconSize(pushButton->size());
 
     setTextProperties(currentColor, currentFont);

@@ -20,8 +20,6 @@ DatabaseHelper::DatabaseHelper(QObject *parent) : QObject(parent), apiKey(QStrin
     networkManager = new QNetworkAccessManager(this);  
 }
 
-
-
 void DatabaseHelper::loadData()
 {
     QString savedEmail(""), savedPassword("");
@@ -117,7 +115,6 @@ void DatabaseHelper::parseResponse(const QByteArray &response)
     else if ( jsonDocument.object().contains("kind"))
     {
         QString newIdToken = jsonDocument.object().value("idToken").toString();
-        //qDebug()I<< "Obtained user ID Token: " << idToken;
         qDebug() << "User signed in successfully!";
         idToken = newIdToken;
         emit userSignedIn();
