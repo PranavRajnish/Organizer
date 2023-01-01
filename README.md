@@ -8,16 +8,16 @@ To use download the build folder of the required platform and run the executable
 
 ## To-Do Lists
 
-<img src="./Images/Organizer1.png" alt="Todo Lists" width="500"/>
+<img src="./Display_Images/Organizer1.png" alt="Todo Lists" width="500"/>
 
 ## Notes
 
-<img src="./Images/Organizer2.png" alt="Notes" width="500"/>
+<img src="./Display_Images/Organizer2.png" alt="Notes" width="500"/>
 
 ## Flow Charts
 
-<img src="./Images/Organizer3.png" alt="Flow Charts" width="500"/>
+<img src="./Display_Images/Organize3.png" alt="Flow Charts" width="500"/>
 
 ## Mood Boards
 
-<img src="./Images/Organizer4.png" alt="Mood Boards" width="500"/>
+<img src="./Display_Images/Organizer4.png" alt="Mood Boards" width="500"/>
